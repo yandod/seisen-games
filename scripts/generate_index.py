@@ -37,21 +37,21 @@ def generate_index(build_dir):
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}
     body {{
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      background: linear-gradient(160deg, #eaf3fb 0%, #d3e6f7 55%, #bcd8f0 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 40px 20px;
-      color: #fff;
+      color: #16324f;
     }}
     h1 {{
       font-size: 2.5rem;
       margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      color: #0b3d7a;
     }}
     .subtitle {{
-      color: #aaa;
+      color: #4a6b8a;
       margin-bottom: 40px;
       font-size: 1rem;
     }}
@@ -63,20 +63,21 @@ def generate_index(build_dir):
       width: 100%;
     }}
     .game-card {{
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: #ffffff;
+      border: 1px solid #cfe0f0;
       border-radius: 16px;
       padding: 40px 20px 20px;
       text-align: center;
-      color: #fff;
+      color: #16324f;
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: 0 4px 16px rgba(11,61,122,0.08);
     }}
     .game-card:hover {{
-      background: rgba(255,255,255,0.12);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(11,61,122,0.18);
     }}
     .game-icon {{
       font-size: 3rem;
@@ -84,7 +85,8 @@ def generate_index(build_dir):
     }}
     .game-card h2 {{
       font-size: 1.3rem;
-      font-weight: 500;
+      font-weight: 600;
+      color: #0b3d7a;
       margin-bottom: 24px;
     }}
     .game-actions {{
@@ -106,21 +108,21 @@ def generate_index(build_dir):
     }}
     .btn-play {{
       color: #fff;
-      background: #4a7bd6;
-      border: 1px solid #4a7bd6;
+      background: #0b5fb5;
+      border: 1px solid #0b5fb5;
     }}
     .btn-play:hover {{
-      background: #5a8be6;
+      background: #0a4f97;
       transform: translateY(-2px);
     }}
     .btn-download {{
-      color: #cfe3ff;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.3);
+      color: #0b5fb5;
+      background: #eef5fc;
+      border: 1px solid #a9cbeb;
     }}
     .btn-download:hover {{
-      background: rgba(255,255,255,0.12);
-      color: #fff;
+      background: #dcebfa;
+      color: #0a4f97;
       transform: translateY(-2px);
     }}
   </style>
