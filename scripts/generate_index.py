@@ -14,16 +14,17 @@ def generate_index(build_dir):
     for name in games:
         display_name = name
         pyxapp_exists = os.path.exists(os.path.join(build_dir, f"{name}.pyxapp"))
-        download_link = ""
+        download_btn = ""
         if pyxapp_exists:
-            download_link = f"""
-          <a href="{name}.pyxapp" class="download-link" download>⬇ .pyxapp をダウンロード</a>"""
+            download_btn = f"""
+            <a href="{name}.pyxapp" class="btn btn-download" download>⬇ pyxappをダウンロード</a>"""
         game_cards += f"""
         <div class="game-card">
-          <a href="{name}.html" class="game-play">
-            <div class="game-icon">🎮</div>
-            <h2>{display_name}</h2>
-          </a>{download_link}
+          <div class="game-icon">🎮</div>
+          <h2>{display_name}</h2>
+          <div class="game-actions">
+            <a href="{name}.html" class="btn btn-play">▶ ブラウザで遊ぶ</a>{download_btn}
+          </div>
         </div>"""
 
     html = f"""<!DOCTYPE html>
@@ -74,15 +75,8 @@ def generate_index(build_dir):
       align-items: center;
     }}
     .game-card:hover {{
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-5px);
+      background: rgba(255,255,255,0.12);
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }}
-    .game-play {{
-      text-decoration: none;
-      color: #fff;
-      display: block;
-      width: 100%;
     }}
     .game-icon {{
       font-size: 3rem;
@@ -91,22 +85,43 @@ def generate_index(build_dir):
     .game-card h2 {{
       font-size: 1.3rem;
       font-weight: 500;
+      margin-bottom: 24px;
     }}
-    .download-link {{
-      display: inline-block;
-      margin-top: 20px;
-      padding: 8px 16px;
-      font-size: 0.85rem;
-      color: #cfe3ff;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 20px;
+    .game-actions {{
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }}
+    .btn {{
+      display: block;
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: center;
       text-decoration: none;
+      border-radius: 10px;
       transition: all 0.2s ease;
     }}
-    .download-link:hover {{
-      background: rgba(255,255,255,0.18);
+    .btn-play {{
       color: #fff;
+      background: #4a7bd6;
+      border: 1px solid #4a7bd6;
+    }}
+    .btn-play:hover {{
+      background: #5a8be6;
+      transform: translateY(-2px);
+    }}
+    .btn-download {{
+      color: #cfe3ff;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+    }}
+    .btn-download:hover {{
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      transform: translateY(-2px);
     }}
   </style>
 </head>
