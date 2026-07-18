@@ -13,11 +13,18 @@ def generate_index(build_dir):
     game_cards = ""
     for name in games:
         display_name = name
+        pyxapp_exists = os.path.exists(os.path.join(build_dir, f"{name}.pyxapp"))
+        download_link = ""
+        if pyxapp_exists:
+            download_link = f"""
+          <a href="{name}.pyxapp" class="download-link" download>⬇ .pyxapp をダウンロード</a>"""
         game_cards += f"""
-        <a href="{name}.html" class="game-card">
-          <div class="game-icon">🎮</div>
-          <h2>{display_name}</h2>
-        </a>"""
+        <div class="game-card">
+          <a href="{name}.html" class="game-play">
+            <div class="game-icon">🎮</div>
+            <h2>{display_name}</h2>
+          </a>{download_link}
+        </div>"""
 
     html = f"""<!DOCTYPE html>
 <html lang="ja">
@@ -58,16 +65,24 @@ def generate_index(build_dir):
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 16px;
-      padding: 40px 20px;
+      padding: 40px 20px 20px;
       text-align: center;
-      text-decoration: none;
       color: #fff;
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }}
     .game-card:hover {{
       background: rgba(255,255,255,0.15);
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }}
+    .game-play {{
+      text-decoration: none;
+      color: #fff;
+      display: block;
+      width: 100%;
     }}
     .game-icon {{
       font-size: 3rem;
@@ -76,6 +91,22 @@ def generate_index(build_dir):
     .game-card h2 {{
       font-size: 1.3rem;
       font-weight: 500;
+    }}
+    .download-link {{
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      color: #cfe3ff;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }}
+    .download-link:hover {{
+      background: rgba(255,255,255,0.18);
+      color: #fff;
     }}
   </style>
 </head>
