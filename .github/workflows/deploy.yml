@@ -36,6 +36,7 @@ jobs:
             pyxel package "$dir" "$dir/main.py"
             pyxel app2html "${name}.pyxapp"
             mv "${name}.html" "build/${name}.html"
+            mv "${name}.pyxapp" "build/${name}.pyxapp"
           done
 
       - name: Generate index.html

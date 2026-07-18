@@ -14,6 +14,7 @@ for dir in apps/*/; do
   pyxel package "$dir" "$dir/main.py"
   pyxel app2html "${name}.pyxapp"
   mv "${name}.html" "build/${name}.html"
+  mv "${name}.pyxapp" "build/${name}.pyxapp"
 done
 python scripts/generate_index.py build/
 echo "--- Build complete. Files in build/:"

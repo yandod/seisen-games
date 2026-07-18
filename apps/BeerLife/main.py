@@ -9,6 +9,9 @@ class App:
         pyxel.run(self.update, self.draw)
 
     def update(self):
+        if pyxel.btn(pyxel.GAMEPAD1_BUTTON_SELECT) and pyxel.btn(pyxel.GAMEPAD1_BUTTON_START):
+            pyxel.quit()
+        
         self.x += 0.5
         if self.x >= pyxel.width:
             self.x = -8
